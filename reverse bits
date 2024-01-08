@@ -1,0 +1,7 @@
+n=int(input())
+a=bin(n)
+a=a.replace("0b","")
+b=(32-len(a))*'0'
+c=b+a
+d=c[::-1]
+print(int(d,2))
