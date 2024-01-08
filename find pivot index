@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,i,flag=0;
+    cin>>n;
+    vector<int>l;
+    for(i=0; i<n; i++)
+    {
+        int a;
+        cin>>a;
+        l.push_back(a);
+    }
+    int pref[n];
+    pref[0]=l[0];
+    for(i=1; i<n; i++)
+    {
+        pref[i]=pref[i-1]+l[i];
+    }
+    int suf[n];
+    suf[n-1]=l[n-1];
+    for(i=n-2; i>=0; i--)
+    {
+        suf[i]=suf[i+1]+l[i];
+    }
+    for(i=0; i<n; i++)
+    {
+        if(pref[i]==suf[i])
+        {
+            cout<<i<<endl;
+            flag=1;
+            break;
+        }
+    }
+    if(flag==0)
+    {
+        cout<<-1<<endl;
+    }
+}
